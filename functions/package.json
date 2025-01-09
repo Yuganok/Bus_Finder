@@ -1,0 +1,33 @@
+{
+  "name": "bus-stops-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "firebase emulators:start --only functions",
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": "18"
+  },
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2",
+    "firebase-functions": "^6.2.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.12.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.17.0"
+  }
+}

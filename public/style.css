@@ -1,0 +1,331 @@
+/* Основные стили */
+body {
+    background-color: #f7f9fc;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Контейнер */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Кнопки */
+.btn {
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #0056b3, #007bff);
+}
+
+.btn-danger {
+    font-size: 16px;
+    background: linear-gradient(90deg, #ff4d4d, #d90000);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(90deg, #d90000, #ff4d4d);
+}
+
+
+
+/* Поля ввода */
+.form-control {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+}
+
+.suggestions {
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1050;
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); 
+    margin-top: 5px; 
+    padding: 0;
+    position: absolute;
+    width: calc(100% - 4px); 
+    top: 100%;
+    left: 0;
+    transition: all 0.2s ease-in-out; 
+}
+
+
+.suggestions .list-group-item {
+    padding: 12px 16px; 
+    cursor: pointer;
+    border-bottom: 1px solid #eee; 
+    background-color: #fff; 
+    color: #333; 
+    font-size: 16px; 
+    transition: background-color 0.2s ease, color 0.2s ease; 
+}
+
+.suggestions .list-group-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px; 
+}
+
+.suggestions .list-group-item:hover {
+    background-color: #e3e8ef; 
+    color: #0056b3; 
+    font-weight: bold; 
+}
+
+
+.suggestions .list-group-item:first-child {
+    border-radius: 8px 8px 0 0; 
+}
+
+.suggestions .list-group-item.active {
+    background-color: #217ee2; 
+    color: #fff; 
+    font-weight: bold; 
+}
+
+
+/* Карточки */
+.card {
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Результаты и детали */
+#results, #busDetails {
+    margin-top: 20px;
+}
+
+.direction-title {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.next-day {
+    color: #ff4500;
+    font-style: italic;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.arrival-time {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #results ul {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    #results ul li button {
+        width: 100%;
+        padding: 10px 5px;
+        font-size: 16px;
+    }
+
+    .route-direction {
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        border-left: 4px solid #007bff;
+    }
+
+    .direction-info {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .route-destination {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .time-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+        margin: 10px 0 0 0;
+        list-style: none;
+    }
+
+    .time-list li {
+        background: #fff;
+        padding: 8px 12px;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+}
+
+/* Стили для контейнера с автобусами */
+#results ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; 
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+/* Стили для кнопок автобусов */
+#results ul li button {
+    width: 90%; 
+    padding: 8px; 
+    text-align: center; 
+    border-radius: 4px; 
+    font-size: 14px; 
+}
+
+/* Активная кнопка автобуса */
+#results ul li button.active {
+    background: linear-gradient(90deg, #ffc107, #e6a700); 
+    color: black; 
+    border: 2px solid #e6a700; 
+    font-weight: bold; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.route-direction {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+.time-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.time-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time-list li:last-child {
+    border-bottom: none;
+}
+
+.direction-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.next-stop {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.route-number {
+    background-color: #007bff;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.route-destination {
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: bold;
+    color: #007bff;
+    padding: 5px 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 3px solid #007bff;
+}
+
+.route-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.route-number {
+    background-color: #007bff;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.route-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #666;
+    font-size: 14px;
+}
+
+.final-stop {
+    font-style: italic;
+}
+
+.time-list {
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+#locationButton {
+    background-color: #28a745;
+    border-color: #28a745;
+    margin-bottom: 15px;
+}
+
+#locationButton:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
